@@ -1,17 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
-func main() {
+/*func main() {
 	size := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	cumSum := 0
 
 	//only one or the other of these for loops
-	//these are just to see two different ways it can be done
+	//these are just to see different ways numbers from 1-10 can be summed
 
-	for i := 1; i <= len(size); i += 2 {
-		cumSum += size[i] + size[i-1]
+	for i := 0; i <= len(size); i++ {
+		cumSum += size[i]
 	}
 	fmt.Printf("Sum: %d\n", cumSum)
 
@@ -19,4 +23,58 @@ func main() {
 		cumSum += value
 	}
 	fmt.Printf("Sum: %d\n", cumSum)
+}
+
+func sum() {
+	var sum int
+	for i := 1; i <= 10; i++ {
+		sum += i
+	}
+	fmt.Println("Sum: ", sum)
+} */
+
+/*func main() {
+	sum := 0
+	for i := 1; i <= 10; i++ {
+		sum += i
+		if i != 10 {
+			fmt.Printf("%d + ", i)
+		} else {
+			fmt.Printf("%d ", i)
+		}
+	}
+	fmt.Print(" = ", sum)
+	fmt.Println()
+} */
+
+func main() {
+	var sum int
+
+	if len(os.Args) != 3 {
+		fmt.Println("Please enter a minimum and maximum number to add.")
+		return
+	}
+
+	min := os.Args[1]
+	max := os.Args[2]
+
+	if minInt, err := strconv.Atoi(min); err != nil {
+		fmt.Printf("%s is not a number. \n", min)
+		return
+	} else if maxInt, err := strconv.Atoi(max); err != nil {
+		fmt.Printf("%s is not a number. \n", max)
+		return
+	} else {
+		for i := minInt; i <= maxInt; i++ {
+			sum += i
+			if i != maxInt {
+				fmt.Printf("%d + ", i)
+			} else {
+				fmt.Printf("%d ", i)
+			}
+		}
+	}
+	fmt.Print(" = ", sum)
+	fmt.Println()
+
 }
