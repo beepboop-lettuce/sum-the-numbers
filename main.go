@@ -58,10 +58,10 @@ func main() {
 	min := os.Args[1]
 	max := os.Args[2]
 
-	if minInt, err := strconv.Atoi(min); err != nil {
+	if minInt, err1 := strconv.Atoi(min); err1 != nil {
 		fmt.Printf("%s is not a number. \n", min)
 		return
-	} else if maxInt, err := strconv.Atoi(max); err != nil {
+	} else if maxInt, err2 := strconv.Atoi(max); err2 != nil {
 		fmt.Printf("%s is not a number. \n", max)
 		return
 	} else {
