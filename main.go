@@ -45,7 +45,7 @@ func sum() {
 	}
 	fmt.Print(" = ", sum)
 	fmt.Println()
-} */
+}
 
 func main() {
 	var sum int
@@ -66,6 +66,41 @@ func main() {
 		return
 	} else {
 		for i := minInt; i <= maxInt; i++ {
+			sum += i
+			if i != maxInt {
+				fmt.Printf("%d + ", i)
+			} else {
+				fmt.Printf("%d ", i)
+			}
+		}
+	}
+	fmt.Print(" = ", sum)
+	fmt.Println()
+
+}*/
+
+func main() {
+	var sum int
+
+	if len(os.Args) != 3 {
+		fmt.Println("Please enter a minimum and maximum number to add.")
+		return
+	}
+
+	min := os.Args[1]
+	max := os.Args[2]
+
+	if minInt, err1 := strconv.Atoi(min); err1 != nil {
+		fmt.Printf("%s is not a number. \n", min)
+		return
+	} else if maxInt, err2 := strconv.Atoi(max); err2 != nil {
+		fmt.Printf("%s is not a number. \n", max)
+		return
+	} else {
+		for i := minInt; i <= maxInt; i++ {
+			if i%2 != 0 {
+				continue
+			}
 			sum += i
 			if i != maxInt {
 				fmt.Printf("%d + ", i)
